@@ -7,12 +7,12 @@ const sync = async (mystat, googleCalendar, syncOptions) => {
     if (!syncOptions.dateEnd)
       return reject(new Error("Parameter 'dateEnd' is required"));
     if (!syncOptions.calendarName)
-      syncOptions.calendarName = 'Mystat'
+      syncOptions.calendarName = 'Mystat';
 
-    const mystatEvents = await mystat.getSchedule(syncOptions.dateStart, syncOptions.dateEnd)
+    const mystatEvents = await mystat.getSchedule(syncOptions.dateStart, syncOptions.dateEnd);
     let googleEvents = mystatEvents.map(toGoogleCalendarEvent);
     if (syncOptions.eventPrefix)
-      addPrefixToCalendarEvent(googleEvents, syncOptions.eventPrefix)
+      addPrefixToCalendarEvent(googleEvents, syncOptions.eventPrefix);
 
     const calendar = await googleCalendar.addCalendar(syncOptions.calendarName);
     console.log(`Create new calendar with id: ${calendar.id}`);

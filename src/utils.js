@@ -14,7 +14,7 @@ export const getMonthsFromTimeSpan = (startDate, endDate) => {
     months.push(new DateTime(currentDate));
     currentDate = currentDate.plus({month: 1});
   }
-  return months
+  return months;
 };
 
 export const toGoogleCalendarEvent = (event) => {
@@ -30,10 +30,10 @@ export const toGoogleCalendarEvent = (event) => {
       dateTime: DateTime.fromISO(`${event.date}T${event.finished_at}`).toISO(),
       timeZone: 'Europe/Kyiv'
     }
-  }
+  };
 };
 
 export const addPrefixToCalendarEvent = (events, prefix) => events.forEach(element => {
-  element.summary = prefix + element.summary
+  element.summary = prefix + element.summary;
 });
 

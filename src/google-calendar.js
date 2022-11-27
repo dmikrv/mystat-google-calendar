@@ -35,7 +35,7 @@ export default class GoogleCalendar {
             summary: name,
             timeZone,
           }
-        })
+        });
         resolve({id: res.data.id});
       }
       catch(err) {

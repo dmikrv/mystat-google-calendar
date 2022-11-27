@@ -10,10 +10,10 @@ const mystatCredentials = {
 };
 
 const syncOptions = {
-  dateStart: DateTime.local(2023, 01, 01),
+  dateStart: DateTime.local(2023, 1, 1),
   dateEnd: DateTime.local(2023, 12, 31),
   calendarName: 'Mystat',
-  eventPrefix: 'Mystat | '
+  eventPrefix: 'Prefix | '
 }
 
 try {
