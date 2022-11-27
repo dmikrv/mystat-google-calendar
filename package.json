@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Mystat Schedule To Google Calendar Sync",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
     "watch": "nodemon index.js"
@@ -15,7 +15,9 @@
   },
   "dependencies": {
     "@google-cloud/local-auth": "^2.1.0",
+    "gbatchrequests": "^1.0.0",
     "googleapis": "^105.0.0",
+    "luxon": "^3.1.0",
     "mystat-api": "^3.0.19"
   }
 }
