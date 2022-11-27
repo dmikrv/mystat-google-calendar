@@ -6,6 +6,8 @@ import { authenticate } from "@google-cloud/local-auth"
 import { google, calendar_v3 } from "googleapis"
 import { RunBatch } from "gbatchrequests"
 import { DateTime } from "luxon";
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 const userData = {
   username: "Krav_up8d",
@@ -15,14 +17,18 @@ const mystatApi = new MystatAPI(userData);
 if (typeof (await mystatApi.getAccessToken()) !== 'string') {
   throw new Error("Invalid сredentials for mystat")
 }
+const fullName = (await mystatApi.getProfileInfo()).data.full_name
+const group = (await mystatApi.getProfileInfo()).data.group_name
+const photoUrl = (await mystatApi.getProfileInfo()).data.photo
 
 // If modifying these scopes, delete token.json.
-const SCOPES = ['https://www.googleapis.com/auth/calendar', 'https://www.googleapis.com/auth/calendar.events'];
+const SCOPES = ["https://www.googleapis.com/auth/calendar", "https://www.googleapis.com/auth/calendar.events"]
 // The file token.json stores the user's access and refresh tokens, and is
 // created automatically when the authorization flow completes for the first
 // time.
-const TOKEN_PATH = path.join(process.cwd(), 'token.json');
-const CREDENTIALS_PATH = path.join(process.cwd(), 'credentials.json');
+
+const TOKEN_PATH = path.join(process.cwd(), process.env.GOOGLE_TOKEN_PATH ?? 'token.json');
+const CREDENTIALS_PATH = path.join(process.cwd(), process.env.GOOGLE_CREDENTIALS_PATH ?? 'config/credentials.json');
 
 /**
  * Reads previously authorized credentials from the save file.
@@ -213,4 +219,4 @@ function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
 } 
 
-authorize().then(createCalendar).catch(console.error);
+authorize().then(listEvents).catch(console.error);
