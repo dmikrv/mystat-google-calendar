@@ -2,7 +2,7 @@
 
 ![](./readme_data/photo.png)
 
-**Program for copying maystat schedule to google calendar**
+**Program for sync mystat schedule to google calendar**
  
 ## Instalation
 
@@ -49,18 +49,18 @@ const syncOptions = {
   dateEnd: DateTime.local(2023, 12, 31),
   calendarName: 'Mystat',
   eventPrefix: 'Prefix | '
-}
+};
 
 try {
   const mystat = new Mystat();
-  await mystat.authorize(mystatCredentials)
+  await mystat.authorize(mystatCredentials);
 
   const googleCalendar = new GoogleCalendar();
   await googleCalendar.authorize();
 
-  await App.sync(mystat, googleCalendar, syncOptions)
+  await App.sync(mystat, googleCalendar, syncOptions);
 } catch(err) {
-  console.log(err)
+  console.log(err);
 }
 ```
 

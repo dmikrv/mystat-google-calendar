@@ -14,11 +14,11 @@ const syncOptions = {
   dateEnd: DateTime.local(2023, 12, 31),
   calendarName: 'Mystat',
   eventPrefix: 'Prefix | '
-}
+};
 
 try {
   const mystat = new Mystat();
-  await mystat.authorize(mystatCredentials)
+  await mystat.authorize(mystatCredentials);
   console.log('Successful login in mystat');
   console.log(`${await mystat.getProfileFullname()} (${await mystat.getProfileGroup()})`);
 
@@ -26,8 +26,8 @@ try {
   await googleCalendar.authorize();
   console.log('Successful authorize google account');
 
-  await App.sync(mystat, googleCalendar, syncOptions)
+  await App.sync(mystat, googleCalendar, syncOptions);
   console.log("Events uploaded to the google calendar");
 } catch(err) {
-  console.log(err)
+  console.log(err);
 }
