@@ -5,8 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "watch": "nodemon index.js"
+    "start": "node ."
   },
   "author": "fan1ech00",
   "license": "MIT",
