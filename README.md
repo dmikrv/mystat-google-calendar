@@ -4,7 +4,7 @@
 
 **Program for sync mystat schedule to google calendar**
  
-## Instalation
+## Installation
 
 First you need to download the program to your computer:
 
@@ -34,7 +34,7 @@ To authenticate as an end user and access user data in your app, you need to cre
 - Specifying a date range for sync
 - Choosing a name for the calendar
 - Ability to choose a name prefix for events
-- Fast sync of a lot of events, thanks to the use of the Google Batch Requests
+- Fast sync a lot of events, thanks to the use of the Google Batch Requests
 
 ## Usage
 
